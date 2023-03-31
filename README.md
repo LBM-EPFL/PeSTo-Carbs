@@ -1,4 +1,4 @@
-# Sugar-PeSTo
+# PeSTo-Carbo
 
 ## License
 
