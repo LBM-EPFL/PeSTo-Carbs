@@ -171,10 +171,6 @@ df.to_csv("results/type_interface_search_scores.csv")
 # display
 #display(df)
 
-# parameters
-#class_names = ["protein", "DNA/RNA", "ion", "ligand", "lipid"]
-class_names = ["carbohydrates", "cyclodextrins"]
-
 # plot
 plt.figure(figsize=(5,4.5))
 for i in range(len(y_l)):
