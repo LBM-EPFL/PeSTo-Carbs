@@ -2,7 +2,6 @@ import os
 import json
 import numpy as np
 import torch as pt
-import h5py
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
 
@@ -13,6 +12,7 @@ from data_handler import Dataset, collate_batch_data
 from src.dataset import select_by_sid, select_by_max_ba, select_by_interface_types
 from model import Model
 
+
 def setup_dataloader(config_data, sids_selection_filepath):
     # load selected sids
     sids_sel = np.genfromtxt(sids_selection_filepath, dtype=np.dtype('U'))
@@ -20,7 +20,7 @@ def setup_dataloader(config_data, sids_selection_filepath):
 
     # create dataset
     dataset = Dataset(config_data['dataset_filepath'])
-    
+
     # data selection criteria
     m = select_by_sid(dataset, sids_sel) # select by sids
     #print("dataset keys: ",dataset.keys)
@@ -47,7 +47,7 @@ def eval_step(model, device, batch_data, criterion, pos_ratios, pos_weight_facto
 
     # run model
     z = model.forward(X, ids_topk, q, M)
-    
+
     # compute weighted loss
     pos_ratios += (pt.mean(y,dim=0).detach() - pos_ratios) / (1.0 + np.sqrt(global_step))
     criterion.pos_weight = pos_weight_factor * (1.0 - pos_ratios) / (pos_ratios + 1e-6)
@@ -150,16 +150,10 @@ def train(config_data, config_model, config_runtime, output_path):
 
     # debug print
     logger.print(">>> Starting training")
-    
-   
-    #load trained model
-    #model.load_state_dict(pt.load(model_filepath, map_location=pt.device("cpu")))
-    
+
     # send model to device
     model = model.to(device)
-    
 
-    
     # define losses functions
     criterion = pt.nn.BCEWithLogitsLoss(reduction="none")
 

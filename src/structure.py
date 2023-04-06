@@ -1,6 +1,5 @@
 import numpy as np
-from functools import reduce
-from operator import iand
+
 
 std_resnames = np.array([
     'LEU', 'GLU', 'ARG', 'LYS', 'VAL', 'ILE', 'PHE', 'ASP', 'TYR',
@@ -9,9 +8,10 @@ std_resnames = np.array([
 ])
 
 # standard carb names (sorted by abundance) (21)
-std_carbs = np.array(['NAG', 'BGC', 'GLC', 'MAN', 'GAL', 'FUC', 'BMA', 'BNG', 'XYP',
- 'UD1', 'A2G', 'UMQ', 'NGA', 'GDU', 'BG6', 'SLB', 'F6R', 'X6X', 'P6F', 'PA1', '1GN'
- ])
+std_carbs = np.array([
+    'NAG', 'BGC', 'GLC', 'MAN', 'GAL', 'FUC', 'BMA', 'BNG', 'XYP', 'UD1', 'A2G',
+    'UMQ', 'NGA', 'GDU', 'BG6', 'SLB', 'F6R', 'X6X', 'P6F', 'PA1', '1GN'
+])
 
 # resname convergion (37)
 res3to1 = {
@@ -24,8 +24,8 @@ res1to3 = {v:k for k,v in res3to1.items()}
 
 keep_res = list(list(std_resnames) + list(std_carbs))
 
+
 def clean_structure(structure, rm_non_carb=True):
-    
     # mask for water, hydrogens and deuterium
     m_wat = (structure["resname"] == "HOH")
     m_h = (structure["element"] == "H")
@@ -216,7 +216,7 @@ def encode_bfactor(structure, p):
             if len(i_rca) > 0:
                 bf[m_ri] = float(np.max(p[i_rca]))
 
-        # store result 
+        # store result
         structure['bfactor'] = bf
 
     elif p.shape[0] == np.unique(resids).shape[0]:
@@ -230,7 +230,7 @@ def encode_bfactor(structure, p):
 
         # store result
         structure['bfactor'] = bf
-        
+
     else:
         print("WARNING: bfactor not saved")
 
