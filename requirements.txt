@@ -1,0 +1,6 @@
+torch>=1.13.0
+gemmi>=1.5.1
+tqdm>=4.66.1
+# optional for training:
+h5py>=3.9.0
+tensorboard>=2.14.0
