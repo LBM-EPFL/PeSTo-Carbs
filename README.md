@@ -1,4 +1,6 @@
-# PeSTo-Carbs
+# PeSTo-Carbs: geometric deep learning for prediction of protein-carbohydrate binding interfaces
+
+
 
 ## License
 
