@@ -50,6 +50,8 @@ categ_to_resnames = {
     "lipid": ['PLM', 'CLR', 'CDL', 'RET'],
     "carbs": ['NAG', 'BGC', 'GLC', 'MAN', 'GAL', 'FUC', 'BMA', 'BNG', 'XYP', 'UD1', 'A2G',
               'UMQ', 'NGA', 'GDU', 'BG6', 'SLB', 'F6R', 'X6X', 'P6F', 'PA1', '1GN'],
+    # uncomment for ps-s
+    # "carbs": ['GLC', 'BGC', 'FUC', 'GAL','ASG', 'NGA', 'SIA', 'AHR', 'XYP', 'MAN', 'RIB', 'ADA', 'GTK', 'BDP', 'GCU', 'LGU', 'RAM', 'ABE', 'BM3', 'FRU', 'LFR'],
     "cyclodextrins": ['CLY'],
 }
 resname_to_categ = {rn:c for c in categ_to_resnames for rn in categ_to_resnames[c]}
