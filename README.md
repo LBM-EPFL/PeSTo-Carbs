@@ -2,7 +2,7 @@
 ![pesto carbs summary](img/pesto_carbs_summary.jpg)
 
 ## Introduction
-PeSTo-Carbs is an extension of PeSTo ([github.com/LBM-EPFL/PeSTo](github.com/LBM-EPFL/PeSTo)), trained to predict protein-carbohydrate and protein-cyclodextrin binding interfaces. We provide two models for PeSTo-Carbs: a general model PS-G (`ps-s.pt`) for a wide range of carbohydrates, their derivatives and cyclodextrins and a specific PS-S (`ps-s.pt`) trained on specific important carbohydrate monomers. The method is available on our webserver at [pesto.epfl.ch](https://pesto.epfl.ch/).    
+PeSTo-Carbs is an extension of PeSTo ([github.com/LBM-EPFL/PeSTo]([github.com/LBM-EPFL/PeSTo](https://github.com/LBM-EPFL/PeSTo))), trained to predict protein-carbohydrate and protein-cyclodextrin binding interfaces. We provide two models for PeSTo-Carbs: a general model PS-G (`ps-s.pt`) for a wide range of carbohydrates, their derivatives and cyclodextrins and a specific PS-S (`ps-s.pt`) trained on specific important carbohydrate monomers. The method is available on our webserver at [pesto.epfl.ch](https://pesto.epfl.ch/).    
 
 ## Installation
 Clone this repo or download the source code. To install dependencies, run
