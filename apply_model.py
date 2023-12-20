@@ -15,19 +15,19 @@ from model import Model
 
 def apply_model(data_path):
     # define device
-    device = pt.device("cpu")
+    device = pt.device("cuda") # change to "cpu" if no cuda
 
     # create model
     model = Model(config_model)
 
     # reload model
-    model.load_state_dict(pt.load(os.path.join("./", 'model_ckpt.pt'), map_location=pt.device("cpu")))
+    model.load_state_dict(pt.load(os.path.join("./", 'ps-s.pt'), map_location=pt.device("cpu"))) # change to 'ps-g.pt' for general model
 
     # set model to inference
     model = model.eval().to(device)
 
     # find pdb files and ignore already predicted oins
-    pdb_filepaths = glob(os.path.join(data_path, "*.pdb1"), recursive=True)
+    pdb_filepaths = glob(os.path.join(data_path, "*.pdb1"), recursive=True) # pdb1, pdb, pdb1.gz
     pdb_filepaths = [fp for fp in pdb_filepaths if "_i" not in fp]
 
     # create dataset loader with preprocessing
@@ -66,7 +66,7 @@ def apply_model(data_path):
                 structure = encode_bfactor(structure, p.cpu().numpy())
 
                 # save results
-                output_filepath = filepath[:-5]+'_i{}.pdb'.format(i)
+                output_filepath = filepath[:-5]+'_i{}.pdb'.format(i) # chain to -4 if using .pdb files
                 save_pdb(split_by_chain(structure), output_filepath)
 
 
