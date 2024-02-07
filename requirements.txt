@@ -1,5 +1,5 @@
 torch>=1.13.0
-gemmi>=1.5.1
+gemmi>=0.6.4
 tqdm>=4.66.1
 numpy>=1.25.2
 # optional for training:
