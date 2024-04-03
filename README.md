@@ -31,3 +31,4 @@ This work is licensed under a
 [cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
 
 ## Reference
+Bibekar, P., Krapp, L., Dal Peraro, M. PeSTo-Carbs: Geometric Deep Learning for Prediction of Protein−Carbohydrate Binding Interfaces. _J. Chem. Theory Comput._, 2024. [DOI: 10.1021/acs.jctc.3c01028](https://doi.org/10.1021/acs.jctc.3c01145).
