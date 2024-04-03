@@ -27,7 +27,7 @@ def apply_model(data_path):
     model = model.eval().to(device)
 
     # find pdb files and ignore already predicted oins
-    pdb_filepaths = glob(os.path.join(data_path, "*.pdb1"), recursive=True) # pdb1, pdb, pdb1.gz
+    pdb_filepaths = glob(os.path.join(data_path, "*.pdb1"), recursive=True) # pdb1/pdb
     pdb_filepaths = [fp for fp in pdb_filepaths if "_i" not in fp]
 
     # create dataset loader with preprocessing
@@ -66,9 +66,9 @@ def apply_model(data_path):
                 structure = encode_bfactor(structure, p.cpu().numpy())
 
                 # save results
-                output_filepath = filepath[:-5]+'_i{}.pdb'.format(i) # chain to -4 if using .pdb files
+                output_filepath = filepath.split('/')[-1].split('.')[0]+'_i{}.pdb'.format(i)
                 save_pdb(split_by_chain(structure), output_filepath)
 
 
 if __name__ == '__main__':
-    apply_model("pdbs")
+    apply_model("test_pdb")
